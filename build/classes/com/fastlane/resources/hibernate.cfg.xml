@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration PUBLIC 
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+
+    <!-- hibernate dialect -->
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property> 
+    <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
+    <property name="hibernate.connection.username">SYSTEM</property>
+    <property name="hibernate.connection.password">admin</property>  
+    <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+    
+    <!-- Automatic schema creation (begin) === -->      
+    <property name="hibernate.hbm2ddl.auto">none</property> 
+    
+    <!-- Simple memory-only cache -->
+    <property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+
+     <!-- Enable Hibernate's automatic session context management -->
+     <property name="current_session_context_class">thread</property>  
+ 
+    <mapping class="com.fastlane.entity.UserEntity"/>
+    <mapping class="com.fastlane.entity.AdminEntity"/>
+    <mapping class="com.fastlane.entity.CarDetailsEntity"/>
+    <mapping class="com.fastlane.entity.CarDetailsStoreEntity"/>
+    <mapping class="com.fastlane.entity.BikeDetailsEntity"/>
+    <mapping class="com.fastlane.entity.BikeDetailsStoreEntity"/>
+ 	
+</session-factory>
+</hibernate-configuration>

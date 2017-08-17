@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Buy Car Policy: FastLane Vehicle Insurance</title>
+<!-- ******************************************************** -->
+<!--<script src="js/shared/angular.js"></script> -->
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-cookies.js"></script>
+ -->
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-cookies.js"></script>
+
+<script src="../js/shared/angular-route.js"></script>
+<script src="../js/shared/jquery.js"></script>
+<!-- <script src="js/shared/bootstrap.js"></script> -->
+<script src="../js/user/Properties.js"></script>
+<script src="../js/user/Application.js"></script>
+<script src="../js/user/Controller.js"></script>
+<script src="../js/user/AdminController.js"></script>
+<script src="../js/user/RenewBikeController.js"></script>
+<script src="../js/user/SignInCheckController.js"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+
+<script type="text/javascript">
+	WebFont
+			.load({
+				google : {
+					families : [
+							"Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic",
+							"Oswald:200,300,400,500,600,700",
+							"Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic",
+							"Playfair Display:regular,700,900" ]
+				}
+			});
+</script>
+<script src="../js/shared/modernizer.js" type="text/javascript"></script>
+<link href="../img/FastLane Vehicle (1).png" rel="shortcut icon"
+	type="image/x-icon">
+<link href="../img/256.png" rel="apple-touch-icon">
+<style>
+.form-group .form-control {
+	position: relative;
+	z-index: 2;
+	padding: 12px;
+	width: 100%;
+	box-shadow: none;
+}
+
+.form-group .form-control:focus, .form-group .form-control:active {
+	box-shadow: none;
+	outline: none;
+}
+
+.form-group .form-label {
+	color: #222222;
+	font-size: 14px;
+	min-height: 42px;
+	text-align: left;
+	position: absolute;
+	top: 14px;
+	left: 10px;
+	right: 0;
+	-webkit-transition: 0.3s;
+	transition: 0.3s;
+	z-index: 3;
+}
+
+.form-group.focus:after {
+	opacity: 1;
+	width: 100%;
+}
+
+.form-group.focus .form-label, .form-group.filled .form-label {
+	top: -20px;
+	font-size: 12px;
+	left: 0px;
+	color: #5da8ef;
+}
+</style>
+<link rel="stylesheet" href="../css/bootstrap.css">
+<!-- <link rel="stylesheet" href="css/styling.css"> -->
+
+
+<link href="../css/webflow.css" rel="stylesheet" type="text/css">
+<link href="../css/normalize.css" rel="stylesheet" type="text/css">
+<link href="../css/surf-theme.webflow.css" rel="stylesheet"
+	type="text/css">
+<body ng-app="BuyApp" ng-controller="CarDetailsController">
+	<header class="header">
+		<div ng-controller="SignInCheckController" class="navbar w-nav"
+			data-animation="default" data-collapse="medium" data-duration="400"
+			id="top">
+			<header class="container in-nav w-container">
+				<a class="w-nav-brand" href="../AfterLoginMainPage.html#top"> <img
+					alt="Surfboard Logo" src="../img/FastLane Vehicle (3).png"
+					width="150">
+				</a>
+				<nav class="nav-menu w-clearfix w-nav-menu" role="navigation">
+					<a ng-click="buyPolicySelectVehicleBuy()"
+						class="nav-link w-nav-link" href="#">Buy New Policy</a> <a
+						ng-click="buyPolicySelectVehicleRenew()"
+						class="nav-link w-nav-link" href="#">Renew Policy</a> <a
+						ng-click="buyPolicySelectVehicleClaim()"
+						class="nav-link w-nav-link" href="#">Claims</a> <a
+						class="nav-link w-nav-link"
+						href="/Fastlane_Vehicle_Insurance/partials/userAccount.html">My
+						Profile</a> <a class="nav-link w-nav-link" href="#"><span
+						ng-click="logOut()">Logout</span></a>
+					<!-- <a class="nav-link w-nav-link" href="#signin">Sign In</a> -->
+				</nav>
+				<div class="menu-button w-nav-button">
+					<div class="w-icon-nav-menu"></div>
+				</div>
+			</header>
+		</div>
+	</header>
+	<div class="bottom middle-line" data-ix="float-in-on-scroll"></div>
+	<!-- <div class="row"> -->
+	<!-- <div class="col-md-4"></div> -->
+	<!-- <div class="col-md-4 bordering"> -->
+	<div class="contact-bg">
+		<article class="centered container w-container" id="signin">
+			<form name="form" ng-submit="cardetailsform.submitCarForm()">
+				<h2 class="sub-heading" data-ix="float-in-on-scroll-2">Enter
+					Your Car Details</h2>
+				<p class="max-500 text-bottom" data-ix="float-in-on-scroll-3">Get
+					a quick quote.</p>
+
+
+
+
+				<!------------Purchase city List----------------->
+				<div class="form-wrapper w-form">
+					<div ng-init="fetchPurchaseCityList()" data-ix="float-in-on-scroll"
+						class="form-group">
+						<label class="label" style="font-size: 15px; color: black;">City
+							of Purchase:</label> <select class="form-control"
+							ng-model="cardetailsform.purchaseCity">
+							<option value="">--Select--</option>
+							<option ng-repeat="item in purchaseCityList" ng-value="item"
+								name="item" required="required">{{item}}</option>
+						</select>
+					</div>
+				</div>
+
+
+				<!-- -----------Date of purchase---------- -->
+				<div class="form-wrapper w-form">
+					<div class="form-group" data-ix="float-in-on-scroll">
+						<label class="label" style="font-size: 15px; color: black;">Date
+							of Purchase:</label> <input type="date" class="form-control"
+							ng-blur="validatePurchaseDate()"
+							ng-model="cardetailsform.dateOfPurchase" required="required"
+							placeholder="dd/mm/yyyy" />
+					</div>
+				</div>
+
+				<p align="center" data-ix="float-in-on-scroll" style="color: red;">{{cardetailsform.purchaseDateMessage}}</p>
+
+
+
+
+
+				<!-- ---------vehicle make---------------- -->
+				<div class="form-wrapper w-form">
+					<div ng-init="fetchCarBrandList()" class="form-group"
+						data-ix="float-in-on-scroll">
+						<label class="label" style="font-size: 15px; color: black;">Select
+							Brand:</label> <select class="form-control"
+							ng-model="cardetailsform.carBrand">
+							<option value="">--Select--</option>
+							<option ng-repeat="item in carBrandList" ng-value="item"
+								name="item" required="required">{{item}}</option>
+						</select>
+					</div>
+				</div>
+
+
+
+				<!-- -------car model--------------- -->
+				<div class="form-wrapper w-form">
+					<div
+						ng-if="cardetailsform.carBrand!=null && cardetailsform.purchaseCity!=null"
+						class="form-group">
+						<span ng-init="fetchCarModelList()"> <label class="label"
+							style="font-size: 15px; color: black;">Select Model:</label> <select
+							class="form-control" ng-click="fetchCarPrice()"
+							ng-model="cardetailsform.carModel">
+								<option value="">--Select--</option>
+								<option ng-repeat="item in carModelList" ng-value="item"
+									name="item" required="required">{{item}}</option>
+						</select>
+						</span>
+					</div>
+				</div>
+
+
+				<!------- show room price--------->
+				<div class="form-wrapper w-form">
+					<div class="form-group"
+						ng-show="cardetailsform.carBrand!=null && cardetailsform.purchaseCity!=null && cardetailsform.carModel!=null">
+						<label class="label" style="font-size: 15px; color: black;">Ex-Showroom
+							Price:</label> <input type="text" readonly="readonly"
+							class="form-control" ng-value="cardetailsform.carPrice"
+							ng-model="cardetailsform.carPrice" />
+					</div>
+				</div>
+
+
+				<!-- submit the button -->
+				<div align="center" class="form-group">
+					<button data-ix="float-in-on-scroll" style="color: black;"
+						class="btn btn-primary form-control" type="submit">Submit</button>
+				</div>
+				<br />
+				<div style="color: red;" ng-bind="cardetailsform.message"></div>
+
+			</form>
+		</article>
+	</div>
+	<footer class="section">
+		<footer class="both-top-and-bottom centered container w-container">
+			<a class="footer-logo w-inline-block" data-ix="float-in-on-scroll"
+				href="#top"> <img alt="Surfboard Logo"
+				src="../img/FastLane Vehicle (3).png" width="1000">
+			</a>
+
+			<!-- <div class="social-links-footer" data-ix="float-in-on-scroll-3">
+        <a class="footer social-icon w-inline-block" href="#">
+          <img class="tumble" src="img/tumblr.svg">
+        </a>
+        <a class="footer social-icon w-inline-block" href="#">
+          <img class="tumble" src="img/twitter.png">
+        </a>
+        <a class="footer social-icon w-inline-block" href="#">
+          <img class="tumble" src="img/vimeo.svg">
+        </a>
+      </div> -->
+		</footer>
+
+	</footer>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"
+		type="text/javascript"></script>
+	<script src="../js/shared/webflow.js" type="text/javascript"></script>
+	<!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+	<script>
+		$('.form-control').focusout(function() {
+			$('.form-group').removeClass('focus');
+		});
+		$('.form-control').focus(function() {
+			$(this).closest('.form-group').addClass('focus');
+		});
+		/// Check for the input field keypress
+		$('.form-control').keyup(function() {
+			if ($(this).val().length > 0) {
+				$(this).closest('.form-group').addClass('filled');
+			} else {
+				$(this).closest('.form-group').removeClass('filled');
+			}
+		});
+		/// Check for the input field filled focus
+		var $formControl = $('.form-control');
+		var values = {};
+		var validate = $formControl.each(function() {
+			if ($(this).val().length > 0) {
+				$(this).closest('.form-group').addClass('filled');
+			} else {
+				$(this).closest('.form-group').removeClass('filled');
+			}
+		});
+	</script>
+</body>
+</html>

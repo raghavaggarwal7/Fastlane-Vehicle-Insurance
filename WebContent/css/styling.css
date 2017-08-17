@@ -1,0 +1,142 @@
+html, body{ 
+	padding:0;
+	/* background-image: url("../img/background.jpg"); */
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: black;
+}
+
+/* div.background {
+  background: url(klematis.jpg) repeat;
+  
+}
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  padding-top:50px;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=60); For IE8 and earlier
+}
+
+div.transbox p {
+  margin: 5%;
+  padding-bottom:50px;
+  font-weight: bold;
+  color: #000000;
+} */
+#text{
+          position: absolute;
+          top: 30px;
+          left: 180px;
+          width: 50%;
+          padding: 20px;
+          background-color: rgba(90,150,300,0.3);
+}
+#two{
+       background-image: url("../img/two.PNG");
+       background-repeat: no-repeat;
+}
+#four{
+       background-image: url("../img/four.PNG");
+       background-repeat: no-repeat;
+}
+#buy{
+       background-image: url("../img/buy.PNG");
+       background-repeat: no-repeat;
+}
+#renew{
+       background-image: url("../img/renew.PNG");
+       background-repeat: no-repeat;
+       
+}
+#buycar{
+       background-image: url("../img/buycar.PNG");
+       background-repeat: no-repeat;
+}
+#renewcar{
+       background-image: url("../img/renewcar.PNG");
+       background-repeat: no-repeat;
+}
+
+h3{
+            font-size: 25px;
+            margin-bottom: 20px;
+            color:white;
+          }
+h1{
+	font-size: 40px;
+            margin-bottom: 20px;
+            color:white;
+}
+
+h4{
+	font-size: 20px;
+            margin-bottom: 20px;
+            color:white;
+}
+li{
+	font-size: 15px;
+            color:white;
+}
+
+label{
+	
+            margin-bottom: 15px;
+            color:white;
+}
+
+
+
+#admin{
+	background-image: url("../img/admin.jpg");
+	padding:0px;
+	padding-top:0px;
+	padding-left:0px;
+	padding-right:0px;
+	padding-bottom:0px;
+	width:680px;
+	height:590px;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	
+}
+
+#customer{
+	background-image: url("../img/customer2.jpg");
+	padding:0px;
+	width:660px;
+	height:590px;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	
+}
+
+
+.row {
+	margin-right: 0px;
+	margin-left: 0px
+}
+
+.container-fluid{
+	  height:100%;
+	  display:table;
+	  width: 100%;
+	  padding: 0;
+}
+
+.bordering{
+	border-radius: 25px;
+     background: #000000; 
+    padding: 20px;  
+}

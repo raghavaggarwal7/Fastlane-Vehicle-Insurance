@@ -1,0 +1,100 @@
+@CHARSET "ISO-8859-1";
+#cssSlider {
+  width: 1350px;
+	height: 300px;
+	overflow: hidden;
+	border: 10px  #666;
+}
+
+#sliderImages {
+	width : 4000px;
+	height: 300px;
+	overflow: hidden;
+	
+	/* animation duration: 16s : 5x ~3s display image + 5x ~0.2s slide */
+	animation: slide 16s infinite;
+	-moz-animation: slide 16s infinite;
+	-webkit-animation: slide 16s infinite;
+	-o-animation: slide 16s infinite;
+}
+
+#sliderImages img {
+	float: left;
+}
+
+@keyframes slide{
+	0%{margin-left: 0px;}
+	17%{margin-left: 0px;}
+	20%{margin-left: -800px;}
+	37%{margin-left: -800px;}
+	40%{margin-left: -1600px;}
+	57%{margin-left: -1600px;}
+	60%{margin-left: -2400px;}
+	77%{margin-left: -2400px;}
+	80%{margin-left: -3200px;}
+	97%{margin-left: -3200px;}
+	100%{margin-left: 0px;}
+}
+
+@-moz-keyframes slide{
+	0%{margin-left: 0px;}
+	17%{margin-left: 0px;}
+	20%{margin-left: -1000px;}
+	37%{margin-left: -1000px;}
+	40%{margin-left: -1600px;}
+	57%{margin-left: -1600px;}
+	60%{margin-left: -800px;}
+	77%{margin-left: -2400px;}
+	80%{margin-left: -3200px;}
+	100%{margin-left: -3200px;}
+}
+
+@-webkit-keyframes slide{
+	0%{margin-left: 0px;}
+	17%{margin-left: 0px;}
+	20%{margin-left: -800px;}
+	37%{margin-left: -800px;}
+	40%{margin-left: -1600px;}
+	57%{margin-left: -1600px;}
+	60%{margin-left: -2400px;}
+	77%{margin-left: -2400px;}
+	80%{margin-left: -3200px;}
+	100%{margin-left: -3200px;}
+}
+
+@-o-keyframes slide{
+	0%{margin-left: 0px;}
+	17%{margin-left: 0px;}
+	20%{margin-left: -800px;}
+	37%{margin-left: -800px;}
+	40%{margin-left: -1600px;}
+	57%{margin-left: -1600px;}
+	60%{margin-left: -2400px;}
+	77%{margin-left: -2400px;}
+	80%{margin-left: -3200px;}
+	100%{margin-left: -3200px;}
+}
+@-j-keyframes slide{
+	0%{margin-left: 0px;}
+	17%{margin-left: 0px;}
+	20%{margin-left: -800px;}
+	37%{margin-left: -800px;}
+	40%{margin-left: -1600px;}
+	57%{margin-left: -1600px;}
+	60%{margin-left: -2400px;}
+	77%{margin-left: -2400px;}
+	80%{margin-left: -3200px;}
+	100%{margin-left: -3200px;}
+}
+@-k-keyframes slide{
+	0%{margin-left: 0px;}
+	17%{margin-left: 0px;}
+	20%{margin-left: -800px;}
+	37%{margin-left: -800px;}
+	40%{margin-left: -1600px;}
+	57%{margin-left: -1600px;}
+	60%{margin-left: -2400px;}
+	77%{margin-left: -2400px;}
+	80%{margin-left: -3200px;}
+	100%{margin-left: -3200px;}
+}
